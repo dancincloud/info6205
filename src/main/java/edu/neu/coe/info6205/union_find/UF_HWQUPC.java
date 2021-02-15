@@ -177,10 +177,12 @@ public class UF_HWQUPC implements UF {
 //        System.out.println(i + ", " + j);
         if(height[j] > height[i]){
             parent[i] = j;
-            height[j] += height[i] + 1;
+            height[j] += height[i];
+            height[i] = 0;
         }else{
             parent[j] = i;
-            height[i] += height[j] + 1;
+            height[i] += height[j];
+            height[j] = 0;
         }
     }
 
