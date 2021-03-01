@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 /**
  * A source of random information.
  */
-class Source {
+public class Source {
     public Source(int N, int M, Random random) {
         n = N;
         m = M;
