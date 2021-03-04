@@ -109,7 +109,8 @@ public class BaseHelper<X extends Comparable<X>> implements Helper<X> {
 
     public X[] random(Class<X> clazz, Function<Random, X> f) {
         if (n <= 0) throw new HelperException("Helper.random: not initialized");
-        return Utilities.fillRandomArray(clazz, random, n, f);
+        randomArray = Utilities.fillRandomArray(clazz, random, n, f);
+        return randomArray;
     }
 
     /**
@@ -191,6 +192,11 @@ public class BaseHelper<X extends Comparable<X>> implements Helper<X> {
     }
 
     public static final String INSTRUMENT = "instrument";
+
+    /**
+     * Keep track of the random array that was generated. This is available via the InstrumentedHelper class.
+     */
+    protected X[] randomArray;
 
     public static class HelperException extends RuntimeException {
 
