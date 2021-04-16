@@ -16,6 +16,18 @@ import static org.junit.Assert.*;
  */
 public class RedBlackTree_Test {
     @Test
+    public void testRedLinks(){
+        RedBlackTree<Integer, Integer> rbTree = new RedBlackTree();
+
+        for(int i = 0; i < 255; i++){
+            rbTree.put(i, i);
+        }
+
+        assertTrue(rbTree.noRedLinks());
+    }
+
+
+    @Test
     public void testBalance() {
         RedBlackTree<Integer, Integer> rbTree = new RedBlackTree();
 
@@ -70,7 +82,8 @@ public class RedBlackTree_Test {
     }
 
     @Test
-    public void testPut() {
+    public void testPutAndGet
+            () {
         RedBlackTree<Integer, Integer> rbTree = new RedBlackTree();
 
         Random random = new Random();

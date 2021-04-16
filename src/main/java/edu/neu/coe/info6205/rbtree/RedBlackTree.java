@@ -1,7 +1,5 @@
 package edu.neu.coe.info6205.rbtree;
 
-import java.util.Random;
-
 /**
  * implement left leaning red-black tree
  *
@@ -333,20 +331,17 @@ public class RedBlackTree<Key extends Comparable<Key>,  Value> {
         return isBalanced() && isBST() && is23();
     }
 
+    public boolean noRedLinks(){
+        return noRedLinks(root);
+    }
+
+    private boolean noRedLinks(RBTNode node){
+        if(node == null) return true;
+
+        return !isRed(node) && noRedLinks(node.left) && noRedLinks(node.right);
+    }
+
     public static void main(String[] args){
-        RedBlackTree<Integer, Integer> rbTree = new RedBlackTree();
-
-        Random random = new Random();
-//        for(int i = 0; i < 20; i++){
-//            rbTree.put(random.nextInt(255), i);
-//        }
-        for(int i = 0; i < 10; i++){
-            rbTree.put(i, i);
-        }
-
-        System.out.println(rbTree.height());
-
-
 //        RBTPanel p = new RBTPanel(rbTree);
 //        Thread panelThread = new Thread(p);
 //        JFrame frame = new JFrame();
